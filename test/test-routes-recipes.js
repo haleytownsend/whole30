@@ -66,7 +66,7 @@ describe('Recipe router', () => {
       })
       .then(recipe => {
         return chai.request(app)
-          .delete(`/Recipe/${recipe.id}`)
+          .delete(`/Recipe/${recipe._id}`)
           .end()
       })
       .then(res => expect(res).to.have.status(204))
