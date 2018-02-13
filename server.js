@@ -19,7 +19,7 @@ let server
 app.use(bodyParser.json())
 app.use('/Recipe', require('./routes/recipes'))
 app.use(express.static(path.resolve(__dirname, '../')))
-//app.use('/User', require('./routes/users'))
+app.use('/User', require('./routes/users'))
 
 const runServer = () => {
   if (server && server.listening) return

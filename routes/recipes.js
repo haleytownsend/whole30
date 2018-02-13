@@ -35,11 +35,9 @@ router.get('/:id', (req, res) => {
     .catch(message => res.status(404).json({ error: true, message }).end())
 })
 
-//TODO - PUT
-
 router.delete('/:id', (req, res) => {
   Recipe.findByIdAndRemove(req.params['id']).exec()
-    .then(recipe => res.status(204).end())
+    .then(Recipe => res.status(204).end())
     .catch(message => res.status(404).json({ error: true, message }).end())
 })
 
