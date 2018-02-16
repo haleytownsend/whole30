@@ -5,6 +5,9 @@ const Schema = mongoose.Schema;
 const path = require('path');
 const DATABASE_URL = "mongodb://client:password@ds223738.mlab.com:23738/whole30client";
 
+const cors = require('cors');
+const {API_BASE_URL} = require('./config');
+
 
 mongoose.Promise = global.Promise;
 mongoose.connect(DATABASE_URL);
@@ -16,6 +19,7 @@ const app = express()
 
 let server
 
+app.use(cors({ origin: API_BASE_URL }))
 app.use(bodyParser.json())
 app.use('/Recipe', require('./routes/recipes'))
 app.use(express.static(path.resolve(__dirname, '../')))
