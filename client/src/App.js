@@ -1,20 +1,30 @@
-import React, { Component } from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React , { Component } from 'react';
+
+import Header from './components/header';
+import SectionInfo from './components/sectionInfo';
+import Recipes from './components/recipes';
+import FavoriteRecipes from './components/favoriteRecipes';
+import SignUpForm from './components/signUpForm';
 
 class App extends Component {
-  render() {
+  constructor(props) {
+    super(props);
+    this.state = { data: [] };
+  }
+
+  render () {
     return (
-      <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
+      <div id="root">
+      <h1>Test 123</h1>
+        <Header />
+        <main role="main">
+          <SectionInfo />
+          <Recipes data={ this.state.data } />
+          <FavoriteRecipes />
+          <SignUpForm />
+        </main>
       </div>
-    );
+    )
   }
 }
 
